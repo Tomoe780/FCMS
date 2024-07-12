@@ -118,17 +118,3 @@ python cluster_img.py --data gtsrb
 To train a stacked denoising auto encoder and save its image embeddings, run `python pretrain.py --data <DATA>`.
 In order to train on GTSRB, you must first download the GTSRB training data set by running `./download_gtsrb.sh`.
 
-
-## Citation
-
-If you found this library helpful in your research, please consider citing:
-
-```bibtex
-@inproceedings{schier2022constrained,
-  title={Constrained Mean Shift Clustering},
-  author={Schier, Maximilian and Reinders, Christoph and Rosenhahn, Bodo},
-  booktitle={Proceedings of the 2022 SIAM International Conference on Data Mining (SDM)},
-  year={2022},
-  organization={SIAM}
-}
-```
