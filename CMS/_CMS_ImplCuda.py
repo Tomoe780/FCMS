@@ -3,6 +3,7 @@ import math
 import numpy as np
 
 
+# 计算left和right两个向量之间的平方L2范数，并将结果存储在result数组中。
 @cuda.jit('void(float32[:, :], float32[:, :], float32[:, :])')
 def __mode_l2_sqs_cuda_impl(left, right, result):
     i, j = cuda.grid(2)
@@ -14,6 +15,7 @@ def __mode_l2_sqs_cuda_impl(left, right, result):
         result[i, j] = l2_sq
 
 
+# CUDA加速计算输入矩阵中向量之间所有平方范数
 def cuda_l2_squared(left, right=None, tbp=8):
     """
     Calculate all squared L2 norms between the input vectors

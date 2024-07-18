@@ -1,6 +1,7 @@
 import numpy as np
 
 
+# 生成不能连接的约束列表，每个聚类中选择固定数量的点
 def constraint_list_by_fixed_per_cluster_choice(assignments, n=1, return_must_link=False, selected_idxs=None):
     if n == 0 and selected_idxs is None:
         if return_must_link:
@@ -74,6 +75,7 @@ def constraint_list_by_fixed_per_cluster_choice(assignments, n=1, return_must_li
         return result
 
 
+# 生成固定数量的约束，包括不能连接和必须连接的约束
 def generate_constraints_fixed_count(y, n):
     cls = constraint_list_by_fixed_per_cluster_choice(y, n=1).tolist()
 
@@ -99,6 +101,7 @@ def generate_constraints_fixed_count(y, n):
     return cls, mls
 
 
+# 生成多种不同数量的约束列表，适用于不同的实验或测试
 def generate_constraint_variations(y):
     minimum_constraint_count = len(constraint_list_by_fixed_per_cluster_choice(y, n=1))
     result = []

@@ -1,5 +1,5 @@
 def iterate_sdae(input_shape, layers, rate=0.2):
-    from tensorflow.keras.layers import Dropout, MaxPooling2D, Flatten, ZeroPadding2D, Cropping2D
+    from keras.layers import Dropout, MaxPooling2D, Flatten, ZeroPadding2D, Cropping2D
     import tensorflow as tf
 
     layer_count = len(layers)
@@ -90,7 +90,7 @@ def make_dkmeans_mnist(input_shape, n_embeddings=10):
     # Auto encoder from Deep k-Means: Jointly clustering with k-Means and learning representations
     # d-500-500-2000-K
     import tensorflow as tf
-    from tensorflow.keras.layers import Dense, Flatten, Reshape
+    from keras.layers import Dense, Flatten, Reshape
     from tensorflow import random_normal_initializer
     from operator import mul
     from functools import reduce
@@ -225,13 +225,13 @@ def __normalize_keras_dataset(train, test):
 
 
 def load_mnist_normalized():
-    from tensorflow.keras.datasets import mnist
+    from keras.datasets import mnist
 
     return __normalize_keras_dataset(*mnist.load_data())
 
 
 def load_fashion_mnist_normalized():
-    from tensorflow.keras.datasets import fashion_mnist
+    from keras.datasets import fashion_mnist
 
     return __normalize_keras_dataset(*fashion_mnist.load_data())
 
@@ -268,10 +268,13 @@ def main():
         'mnist': make_mnist_dataset,
         'fashion-mnist': make_fashion_mnist_dataset,
         'gtsrb': lambda: make_gtsrb(size=(32, 32), normalize=True).filtered(labels=['Limit_50_kph', 'Limit_120_kph',
-                                       'Attention_Road_Works', 'Attention_Traffic_Light',
-                                       'Roundabout', 'Continue_Right_Of_Sign',
-                                       'Stop', 'Yield', 'Right_Of_Way_Street',
-                                       'No_Entry']),
+                                                                                    'Attention_Road_Works',
+                                                                                    'Attention_Traffic_Light',
+                                                                                    'Roundabout',
+                                                                                    'Continue_Right_Of_Sign',
+                                                                                    'Stop', 'Yield',
+                                                                                    'Right_Of_Way_Street',
+                                                                                    'No_Entry']),
     }
 
     parser = ArgumentParser()

@@ -2,7 +2,9 @@ import numpy as np
 import sys
 
 
+# 线性调整带宽，计算给定迭代次数范围内的线性值
 class AutoLinearPolicy:
+    # 计算点集中向量之间的最小和最大欧氏距离平方，并将其缩放以确定线性窗口的边界
     def __init__(self, points, iterations, start_scale=None, stop_scale=None, verbose=False):
         from ._CMS_ImplNumba import _find_min_max_l2_impl
 
@@ -36,5 +38,6 @@ class AutoLinearPolicy:
         self.low = low
         self.high = high
 
+    # 根据当前迭代次数返回相应的线性值
     def __call__(self, iteration):
         return (iteration / (self.iterations - 1)) * (self.high - self.low) + self.low

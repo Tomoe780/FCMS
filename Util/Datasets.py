@@ -1,6 +1,7 @@
 import numpy as np
 
 
+# 加载、处理和管理不同格式的数据集
 class Dataset:
     def __init__(self, train, test, gt_labels=None, name=None):
         self.train = train
@@ -17,6 +18,7 @@ class Dataset:
                 if np.max(test[-1]) >= len(gt_labels):
                     raise ValueError
 
+    # 归一化处理，将数据集中的每个特征缩放到[0, 1]范围内
     def normalized_linear(self, epsilon=1e-15):
         import numpy as np
 
@@ -52,6 +54,7 @@ class Dataset:
 
         return Dataset(train_new, test_new, gt_labels=gt_labels_new, name=name_new)
 
+    # 筛选数据集
     def filtered(self, labels=None):
         import numpy as np
 

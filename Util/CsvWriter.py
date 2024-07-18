@@ -1,3 +1,4 @@
+# 有效地解决了'csv.DictWriter'的两个主要问题：确保所有值始终存在，并消除在初始化和写行时两次指定键的必要性。这使得 CSV 文件的写入更加简洁和可靠
 class CsvWriter:
     """
     Wrapper for csv.DictWriter which

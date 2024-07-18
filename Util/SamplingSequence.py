@@ -1,7 +1,8 @@
 import numpy as np
-from tensorflow.keras.utils import Sequence
+from keras.utils import Sequence
 
 
+# 用于在Keras模型训练过程中生成随机抽样的批次数据
 class SamplingSequence(Sequence):
     def __init__(self, batch_size, x, y):
         super(SamplingSequence, self).__init__()

@@ -1,3 +1,4 @@
+# 预处理GTSRB数据集
 __GTSRB_LABELS = [
     'Limit_20_kph',
     'Limit_30_kph',
