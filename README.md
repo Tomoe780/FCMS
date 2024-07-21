@@ -49,14 +49,16 @@ The `cms` object now contains the following members:
 
 Member | Description
 --- | ---
-`labels_` | Final cluster labels
-`modes_` | Final position of the cluster centers/modes
-`bandwidth_history_` | Bandwidths used per iteration
-`mode_history_` | Cluster centers/modes per iteration
-`kernel_history_` | Kernel weights per iteration
-`block_history_` | Attraction reduction per iteration
+`labels_` | Final cluster labels 最终群集标签
+`modes_` | Final position of the cluster centers/modes 集群中心/模式的最终位置
+`bandwidth_history_` | Bandwidths used per iteration 每次迭代使用的带宽
+`mode_history_` | Cluster centers/modes per iteration 每次迭代的集群中心/模式
+`kernel_history_` | Kernel weights per iteration 每次迭代的内核权重
+`block_history_` | Attraction reduction per iteration 每次迭代的吸引力减少
 
 To visualize the results, we provide a convenient Matplotlib routine:
+
+为了可视化结果，我们提供了一个方便的 Matplotlib 例程：
 ```python
 from CMS.Plotting import plot_clustering
 import matplotlib.pyplot as plt
@@ -73,13 +75,21 @@ You can run [example_moons.py](example_moons.py) to try it yourself. You may als
 Parameter | Description
 --- | ---
 ``h`` | Set the bandwidth either to a scalar float value, or a callable ``f(int) -> float`` returning the bandwidth for the given iteration
+将带宽设置为标量浮点值，或可调用的“f（int） -> float”，返回给定迭代的带宽
 ``max_iterations`` | Maximum number of iterations
+最大迭代次数
 ``blurring`` | If ``True`` use blurring mean shift, i.e. the sampling points are updated with the cluster centers after each iteration, thus blurring them in the process. If ``False`` use nonblurring mean shift, where sampling points remain stationary.
+如果为“True”，使用模糊均值偏移，即采样点在每次迭代后都会使用聚类中心进行更新，从而在此过程中模糊它们。如果为“False”，则使用非模糊均值偏移，其中采样点保持静止
 ``kernel`` | If ``'ball'``, use a ball kernel, otherwise expects a float in range [0, 1) to use as truncation of a truncated Gaussian kernel. Thus setting ``kernel=0.`` uses a regular Gaussian kernel.
+如果是“ball“”，使用球核，否则期望 [0， 1] 范围内的浮点数用作截断的高斯核的截断。因此，设置“kernel=0.”使用常规高斯核
 ``c_scale`` | The constraint scaling parameter that determines the spatial influence of constraints. For lower values, constraints have less reducing influence on far attractions.
+确定约束的空间影响的约束缩放参数。对于较低的值，约束对远处景点的递减影响较小
 ``label_merge_k`` | This implementation of CMS uses connected components to determine the final cluster labels from the final cluster centers. Specifies the minimum closeness in terms of kernel value to merge two cluster centers into one cluster.
+CMS 的此实现使用连接的组件来确定来自最终集群中心的最终集群标签。指定将两个集群中心合并为一个集群的最小接近度（以内核值为单位）
 ``label_merge_b`` | Specifies the lowest weight reduction through constraints below which two cluster centers are never merged. Set to ``0.`` to disable.
+通过约束指定最低的权重降低，低于该约束值时，两个聚类中心永远不会合并。设置为“0.”以禁用
 ``use_cuda`` | If ``True``, use the CUDA Toolkit to accelerate some calculations. You must have the CUDA Toolkit installed. Please consult the official CUDA documentation on how to install CUDA for your specific system.
+如果为“True”，请使用 CUDA 工具包加速某些计算。您必须安装 CUDA 工具包。请参阅CUDA官方文档，了解如何为您的特定系统安装CUDA
 
 ### Local
 
