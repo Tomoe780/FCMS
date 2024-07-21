@@ -140,7 +140,7 @@ def load_pa(path):
     return np.array(result) - np.min(result)
 
 
-def load_s4(n_total=1000):
+def load_s4(n_total=3000):
     import os
 
     data_folder = os.path.join(os.path.dirname(__file__), '..', 'data')

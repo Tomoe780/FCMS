@@ -1,7 +1,7 @@
 # 可视化聚类结果,绘制了数据点、聚类中心以及必须连接和不能连接的约束
 def plot_clustering(points, assignments, centers=None, cl=None, ml=None, ax=None, labels=None,
-                    alpha=1., legend=True, center_size=1., center_marker='o', point_size=1., point_marker='x',
-                    palette=None, constraints_on_centers=True, pfx=True, equal_axis_scale=True):
+                    alpha=1., legend=True, center_size=1., center_marker='o', point_size=1., point_marker='.',
+                    palette=None, constraints_on_centers=False, pfx=False, equal_axis_scale=True):
     import numpy as np
     import matplotlib.pyplot as plt
     from matplotlib import rcParams
